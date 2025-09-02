@@ -8,4 +8,8 @@ public class tool {
         System.out.println("Name:"+name);
         System.out.println("Age"+age);
     }
+    public void multi(int n1,int n2){
+        System.out.println("res"+(n1+n2));
+    }
+
 }
