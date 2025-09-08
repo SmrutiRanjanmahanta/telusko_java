@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -8,35 +9,50 @@ import java.util.Set;
 
 public class collection {
     public static void main(String[] args) {
-        // List<Integer> nums=new ArrayList<Integer>();
-        // nums.add(3);
-        // nums.add(4);
-        // nums.add(7);
-        // nums.add(8);
-        // nums.add(11);
-        // System.out.println(nums.get(0));
+    //    Comparator<Student> com=new Comparator<Student>(){
 
-        // for(int i:nums){
-        //     System.out.println(i);
-        // }
+        
+    //     public int compare(Student o1, Student o2) {
+    //         if(o1.age>o2.age){
+    //             return 1;
+    //         }else{
+    //             return -1;
+    //         }
+    //     }
 
-        // Set<Integer> nums=new HashSet<Integer>();
-        // nums.add(4);
-        // nums.add(4);
-        // nums.add(3);
-        // nums.add(7);
-        // nums.add(10);
+    //    };
+    
+        List<Student> nums=new ArrayList<>();
 
-        // for(int i:nums){
-        //    System.out.println(i);
-        // }
-
-        Map <String,Integer> student=new HashMap<>();
-        student.put("smruti", 23);
-        student.put("raistar", 25);
-        student.put("salik", 76);
-        student.put("martin", 43);
-        System.out.println(student);
+        nums.add(new Student("Smruti", 16));
+        nums.add(new Student("ajjubhai", 25));
+        nums.add(new Student("amitbhai", 41));
+        nums.add(new Student("jonnybhai", 35));
+        Collections.sort(nums);
+       
+        for(Student s:nums){
+            System.out.println(s);
+        }
        
     }
 }
+class Student implements Comparable<Student>{
+    int age;
+    String name;
+    public Student(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+    public String toString(){
+        return "[ Age--"+age+" name--"+name+" ]";
+    }
+    public int compareTo(Student that) {
+            if(this.age>that.age){
+                return 1;
+            }else{
+                return -1;
+        }
+    }
+}
+
+
